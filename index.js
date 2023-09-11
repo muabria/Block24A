@@ -24,7 +24,7 @@ function add(a,b){
     return{a: str1, b: str2}
 }
 
-console.log(add(2,4));
+console.log(add(5,5));
 
 
 
@@ -54,7 +54,7 @@ const namesWithMoreLength = namesArray.filter(name => name.length > 11);
 console.log(namesWithMoreLength); 
 
 
-//callback function
+//callback function / reverse string 
 
 const myCallback = (arr) => {
     return arr.map(item => item.split('').reverse().join(''));
@@ -69,3 +69,35 @@ const reverse = reverseArray(namesArray, myCallback);
 console.log(reverse);
 
 
+
+//Prompt 4 - Display Winner
+
+function runners(speed,name){
+    let runner=[];
+   for(let i=0;i<speed.length;i++){
+         runner[i] = [speed[i],name[i]]
+   }
+
+   let finalRunner = runner.sort();
+   let l = finalRunner.length-1;
+
+   
+   return displayWinner(finalRunner[l],finalRunner[l-1],100);
+}
+
+function displayWinner (runner1, runner2, raceDistance){
+    let winner;
+
+    if(runner1[0] === runner2[0]) return "It's a  tie!!" ;
+
+    winner= (runner1[0] > runner2[0]) ?  runner1[1] : runner2[1] ;
+
+    return `${winner} is a Winner in ${raceDistance} race distance`;
+}
+
+let race = {
+    name:["fizz","buzz","fizzBuzz"],
+    speed:[5,6,4]
+}
+
+console.log(runners(race.speed,race.name));
