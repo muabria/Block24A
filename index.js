@@ -21,7 +21,7 @@ console.log(multiply(3, 7));
 function add(a,b){
     let str1 = a + 2; 
     let str2 = b + 4;
-    return{str1,str2}
+    return{a: str1, b: str2}
 }
 
 console.log(add(2,4));
@@ -39,14 +39,33 @@ and return a new array containing the modified elements.  */
 // Converts all string elements to lowercase.
 // [Hippopotamus, King Cobra, Giant Panda, Crocodile] 
 
-const namesArray = ["Hippopotamus, King Cobra, Giant Panda, Crocodile"]; 
+const namesArray = ["Hippopotamus", "King Cobra", "Giant Panda", "Crocodile"]; 
+
+// convert all to lowercase
 
 const namesWithLowercase = namesArray.map(name => name.toLowerCase());
 
 console.log(namesWithLowercase);
 
+// print a tring that has a length of only 11 characters 
+
 const namesWithMoreLength = namesArray.filter(name => name.length > 11); 
 
 console.log(namesWithMoreLength); 
+
+
+//callback function
+
+const myCallback = (arr) => {
+    return arr.map(item => item.split('').reverse().join(''));
+}
+//function that calls the reverse string on animals array
+
+function reverseArray(arr, callback) {
+ return callback(arr);
+}
+
+const reverse = reverseArray(namesArray, myCallback);
+console.log(reverse);
 
 
